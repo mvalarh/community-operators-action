@@ -23,8 +23,9 @@ export OP_TEST_LABELS=${OP_TEST_LABELS-"$OPA_PR_LABELS"}
 MYPWD=$(pwd)
 echo "MYPWD=$MYPWD"
 MY_BASENAME=$(basename $MYPWD)
-
+echo "$MY_BASENAME != $OPA_REPO_DIR"
 if [ "$MY_BASENAME" != "$OPA_REPO_DIR" ];then
+    echo "$OPA_REPO $OPA_BRANCH"
     [ -d $OPA_REPO_DIR ] || git clone $OPA_REPO --branch $OPA_BRANCH
     cd $OPA_REPO_DIR
 fi
