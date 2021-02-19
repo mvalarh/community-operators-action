@@ -7,6 +7,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - id: test
-      uses:  mvalarh/community-operators-action @v1
+      uses:  mvalarh/community-operators-action@v1
       with:
         stream: 'upstream-community-operators'
