@@ -20,11 +20,13 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - uses: actions/checkout@v2
+    - name: Checkout community operators repo
+      uses: actions/checkout@v2
       with:
-        repository: 'https://github.com/operator-framework/community-operators.git'
-        ref: 'master'
+        repository: operator-framework/community-operators
+        ref: master
     - id: operator-test
+      name: "Operator test"
       env:
         OPA_STREAM: "${{ inputs.stream }}"
         OPA_NAME: "${{ inputs.name }}"
