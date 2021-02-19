@@ -20,11 +20,11 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Checkout community operators repo
-      uses: actions/checkout@v2
-      with:
-        repository: operator-framework/community-operators
-        ref: master
+    # - name: Checkout community operators repo
+    #   uses: actions/checkout@v2
+    #   with:
+    #     repository: operator-framework/community-operators
+    #     ref: master
     - id: operator-test
       name: "Operator test"
       env:
