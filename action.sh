@@ -20,7 +20,16 @@ export OP_TEST_DRY_RUN=0
 export GODEBUG=x509ignoreCN=0
 export OP_TEST_LABELS=${OP_TEST_LABELS-"$OPA_PR_LABELS"}
 
-[ -d $OPA_REPO_DIR ] || git clone $OPA_REPO --branch $OPA_BRANCH
-cd $OPA_REPO_DIR
-scripts/ci/op-test $OPA_TEST_TYPE "$OPA_STREAM/$OPA_NAME/$OPA_VERSION"
+MYPWD=$(pwd)
+echo "MYPWD=$MYPWD"
+MY_BASENAME=$(basename $MYPWD)
+
+if [ "$MY_BASENAME" != "$OPA_REPO_DIR" ];then
+    [ -d $OPA_REPO_DIR ] || git clone $OPA_REPO --branch $OPA_BRANCH
+    cd $OPA_REPO_DIR
+fi
+echo scripts/ci/op-test $OPA_TEST_TYPE "$OPA_STREAM/$OPA_NAME/$OPA_VERSION"
+#scripts/ci/op-test $OPA_TEST_TYPE "$OPA_STREAM/$OPA_NAME/$OPA_VERSION"
 echo "Done"
+
+cd $MYPWD

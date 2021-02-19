@@ -11,4 +11,4 @@ jobs:
       with:
         test-type: 'oragne'
         stream: 'upstream-community-operators'
-        pf-labels: 'allow/operator-overwrite bug'
+        pr-labels: 'allow/operator-overwrite bug'
