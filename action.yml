@@ -1,6 +1,10 @@
 name: 'Community operators action'
 description: 'Community operator action for operator testing'
 inputs:
+  test-type:
+    description: 'Test type (kiwi,lemon or orange)'
+    required: true
+    default: 'kiwi'
   stream:
     description: 'Operator stream name (community-operators or upstream-community-operators)'
     required: true
@@ -35,6 +39,7 @@ runs:
     - id: operator-test
       name: "Operator test"
       env:
+        OPA_TEST_TYPE: "${{ inputs.test-type }}"
         OPA_STREAM: "${{ inputs.stream }}"
         OPA_NAME: "${{ inputs.name }}"
         OPA_VERSION: "${{ inputs.version }}"
