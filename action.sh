@@ -8,6 +8,8 @@ echo "OPA_REPO=$OPA_REPO"
 echo "OPA_BRANCH=$OPA_BRANCH"
 echo "OPA_REPO_DIR=$OPA_REPO_DIR"
 echo "OPA_OPERATOR_DIR=$OPA_OPERATOR_DIR"
+echo "OPA_PR_LABELS=$OPA_PR_LABELS"
+
 
 export OP_TEST_DEBUG=${OP_TEST_DEBUG-1}
 export OP_TEST_CONTAINER_OPT=${OP_TEST_CONTAINER_OPT-"-t"}
@@ -16,8 +18,9 @@ export OP_TEST_IMAGE=${OP_TEST_IMAGE-"quay.io/operator_testing/operator-test-pla
 export OP_TEST_PROD=0
 export OP_TEST_DRY_RUN=0
 export GODEBUG=x509ignoreCN=0
+export OP_TEST_LABELS=${OP_TEST_LABELS-"$OPA_PR_LABELS"}
 
-git clone $OPA_REPO --branch $OPA_BRANCH
+[ -d $OPA_REPO_DIR ] || git clone $OPA_REPO --branch $OPA_BRANCH
 cd $OPA_REPO_DIR
 scripts/ci/op-test $OPA_TEST_TYPE "$OPA_STREAM/$OPA_NAME/$OPA_VERSION"
 echo "Done"

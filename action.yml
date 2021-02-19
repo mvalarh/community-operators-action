@@ -19,19 +19,18 @@ inputs:
     default: '5.3.0'
   repo:
     description: 'Community operators repo'
-    # required: true
     default: 'https://github.com/operator-framework/community-operators.git'
   branch:
     description: 'Community operators branch'
-    # required: true
     default: 'master'
   repo-dir:
     description: 'Repo directory when if not community-operators'
-    # required: true
     default: 'community-operators'
   operator-dir:
     description: 'Path to operator (community-operators/aqua or local/path/to/operator). If empty <stream>/<name> will be used'
-    # required: true
+    default: ''
+  pr-labels:
+    description: 'Space separated list of labels in PR'
     default: ''
 runs:
   using: "composite"
@@ -47,5 +46,6 @@ runs:
         OPA_BRANCH: "${{ inputs.branch }}"
         OPA_REPO_DIR: "${{ inputs.repo-dir }}"
         OPA_OPERATOR_DIR: "${{ inputs.operator-dir }}"
+        OPA_PR_LABELS: "${{ inputs.pr-labels }}"
       run: ${{ github.action_path }}/action.sh
       shell: bash
