@@ -29,8 +29,10 @@ if [ "$MY_BASENAME" != "$OPA_REPO_DIR" ];then
     [ -d $OPA_REPO_DIR ] || git clone $OPA_REPO --branch $OPA_BRANCH
     cd $OPA_REPO_DIR
 fi
+
+ls -al 
 echo scripts/ci/op-test $OPA_TEST_TYPE "$OPA_STREAM/$OPA_NAME/$OPA_VERSION"
-#scripts/ci/op-test $OPA_TEST_TYPE "$OPA_STREAM/$OPA_NAME/$OPA_VERSION"
+scripts/ci/op-test $OPA_TEST_TYPE "$OPA_STREAM/$OPA_NAME/$OPA_VERSION"
 echo "Done"
 
 cd $MYPWD
