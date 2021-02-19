@@ -3,7 +3,12 @@
 echo "OPA_STREAM=$OPA_STREAM"
 echo "OPA_NAME=$OPA_NAME"
 echo "OPA_VERSION=$OPA_VERSION"
+echo "OPA_REPO=$OPA_REPO"
+echo "OPA_BRANCH=$OPA_BRANCH"
+echo "OPA_REPO_DIR=$OPA_REPO_DIR"
 echo "OPA_OPERATOR_DIR=$OPA_OPERATOR_DIR"
 
-git clone https://github.com/operator-framework/community-operators.git
+git clone $OPA_REPO --branch $OPA_BRANCH
 ls -al 
+
+ls -al $OPA_REPO_DIR
