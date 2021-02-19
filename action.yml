@@ -8,7 +8,7 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - id: 'Operator test'
+    - id: operator-test
       env:
         OPA_STREAM: "${{ inputs.stream }}"
       run: ${{ github.action_path }}/action.sh
