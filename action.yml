@@ -7,15 +7,15 @@ inputs:
     default: 'community-operators'
   name:
     description: 'Operator name'
-    required: true
+    # required: true
     default: 'aqua'
   version:
     description: 'Operator version'
-    required: true
+    # required: true
     default: '5.3.0'
   operator-dir:
     description: 'Path to operator (community-operators/aqua or local/path/to/operator). If empty '<stream>/<name> will be used'
-    required: true
+    # required: true
     default: ''
 runs:
   using: "composite"
