@@ -2,7 +2,7 @@ name: 'Community operators action'
 description: 'Community operator action for operator testing'
 inputs:
   stream:
-    description: 'Operator stream (community-operators or upstream-community-operators)'
+    description: 'Operator stream name. community-operators or upstream-community-operators'
     required: true
     default: 'community-operators'
 runs:
