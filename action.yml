@@ -1,0 +1,15 @@
+name: 'Community operators action'
+description: 'Community operator action for operator testing'
+inputs:
+  stream:
+    description: 'Operator stream (community-operators or upstream-community-operators)'
+    required: true
+    default: 'community-operators'
+runs:
+  using: "composite"
+  steps:
+    - id:
+      env:
+        OPA_STREAM: "${{ inputs.stream }}"
+      run: ${{ github.action_path }}/action.sh
+      shell: bash
