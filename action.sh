@@ -19,5 +19,5 @@ export GODEBUG=x509ignoreCN=0
 
 git clone $OPA_REPO --branch $OPA_BRANCH
 cd $OPA_REPO_DIR
-scripts/ci/op-test $OPA_TEST_TYPE "${{ needs.pr-check.outputs.op_test_stream }}/${{ needs.pr-check.outputs.op_test_name }}/${{ needs.pr-check.outputs.op_test_version }}"
+scripts/ci/op-test $OPA_TEST_TYPE "$OPA_STREAM/$OPA_NAME/$OPA_VERSION"
 echo "Done"
