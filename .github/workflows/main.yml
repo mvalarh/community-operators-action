@@ -9,6 +9,6 @@ jobs:
     - id: test
       uses:  mvalarh/community-operators-action@v1
       with:
-        test-type: 'oragne'
+        test-type: 'orange'
         stream: 'upstream-community-operators'
         pr-labels: 'allow/operator-overwrite bug'
