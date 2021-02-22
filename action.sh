@@ -31,6 +31,7 @@ if [ "$MY_BASENAME" != "$OPA_REPO_DIR" ];then
 fi
 
 ls -al 
+export
 echo scripts/ci/op-test $OPA_TEST_TYPE "$OPA_STREAM/$OPA_NAME/$OPA_VERSION"
 scripts/ci/op-test $OPA_TEST_TYPE "$OPA_STREAM/$OPA_NAME/$OPA_VERSION"
 echo "Done"
