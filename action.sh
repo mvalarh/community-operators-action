@@ -13,7 +13,7 @@ echo "OPA_PR_LABELS=$OPA_PR_LABELS"
 OPA_VALID_TESTS="kiwi lemon orange"
 IS_TEST_VALID=0
 for t in $OPA_VALID_TESTS;do
-  [[ $OPA_TEST_TYPE == $t* ]] IS_TEST_VALID=1
+  [[ $OPA_TEST_TYPE == $t* ]] && IS_TEST_VALID=1
 done
 
 echo "IS_TEST_VALID=$IS_TEST_VALID"
