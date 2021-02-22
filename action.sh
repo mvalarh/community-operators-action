@@ -1,4 +1,5 @@
 #!/bin/bash
+set +o pipefail
 
 echo "OPA_TEST_TYPE=$OPA_TEST_TYPE"
 echo "OPA_STREAM=$OPA_STREAM"
@@ -42,6 +43,8 @@ export
 
 echo scripts/ci/op-test $OPA_TEST_TYPE "$OPA_STREAM/$OPA_NAME/$OPA_VERSION"
 scripts/ci/op-test $OPA_TEST_TYPE "$OPA_STREAM/$OPA_NAME/$OPA_VERSION"
+rc=$?
+[[ $rc -eq 0 ]] || { echo "Error: rc=$rc"; exit $rc; }
 echo "Done"
 
 cd $MYPWD
