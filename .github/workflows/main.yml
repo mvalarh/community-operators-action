@@ -11,4 +11,4 @@ jobs:
       with:
         test-type: 'orange'
         stream: 'upstream-community-operators'
-        pr-labels: 'allow/operator-version-overwrite bug'
+        # pr-labels: 'allow/operator-version-overwrite bug'
